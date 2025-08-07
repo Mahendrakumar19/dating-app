@@ -1,0 +1,630 @@
+/* Base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.App {
+  min-height: 100vh;
+  width: 100%;
+}
+
+/* Container utilities */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* Navigation responsive styles */
+.nav-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.nav-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: white;
+}
+
+.nav-buttons {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.nav-button {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  border: 1px solid white;
+  border-radius: 0.5rem;
+  color: white;
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-size: 0.875rem;
+  white-space: nowrap;
+}
+
+.nav-button:hover {
+  background: white;
+  color: #6B46C1;
+}
+
+.nav-button.logout {
+  border: none;
+  padding: 0.5rem;
+}
+
+/* Card responsive styles */
+.match-card {
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+  background: white;
+  border-radius: 1rem;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.3s;
+}
+
+.match-card:hover {
+  transform: scale(1.02);
+}
+
+.match-photo {
+  width: 100%;
+  height: 400px;
+  position: relative;
+  background: linear-gradient(135deg, #F3E8FF, #DDD6FE);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.match-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.age-badge {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 0.5rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+/* Form responsive styles */
+.form-container {
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 2rem;
+  background: white;
+  border-radius: 1rem;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+}
+
+.form-grid {
+  display: grid;
+  gap: 1rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.form-input {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #D1D5DB;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+}
+
+.form-input:focus {
+  outline: none;
+  ring: 2px;
+  ring-color: #8B5CF6;
+  border-color: #8B5CF6;
+}
+
+/* Button styles */
+.btn {
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  border: none;
+  font-size: 1rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.btn-primary {
+  background: #8B5CF6;
+  color: white;
+}
+
+.btn-primary:hover {
+  background: #7C3AED;
+}
+
+.btn-secondary {
+  background: #6B7280;
+  color: white;
+}
+
+.btn-secondary:hover {
+  background: #4B5563;
+}
+
+.btn-success {
+  background: #10B981;
+  color: white;
+}
+
+.btn-success:hover {
+  background: #059669;
+}
+
+.btn-danger {
+  background: #EF4444;
+  color: white;
+}
+
+.btn-danger:hover {
+  background: #DC2626;
+}
+
+/* Action buttons */
+.action-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.action-button {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1rem 2rem;
+  border-radius: 9999px;
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+.action-button:hover {
+  transform: scale(1.1);
+}
+
+.action-button.like {
+  background: #10B981;
+}
+
+.action-button.like:hover {
+  background: #059669;
+}
+
+.action-button.dislike {
+  background: #EF4444;
+}
+
+.action-button.dislike:hover {
+  background: #DC2626;
+}
+
+/* Grid layouts */
+.grid {
+  display: grid;
+  gap: 1rem;
+}
+
+.grid-cols-1 {
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+}
+
+.grid-cols-2 {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.grid-cols-3 {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+/* Photo grid */
+.photo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: 1rem;
+}
+
+.photo-item {
+  position: relative;
+  aspect-ratio: 1;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  group: true;
+}
+
+.photo-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Message styles */
+.message-container {
+  max-height: 60vh;
+  overflow-y: auto;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.message {
+  display: flex;
+  max-width: 80%;
+}
+
+.message.own {
+  align-self: flex-end;
+  justify-content: flex-end;
+}
+
+.message.other {
+  align-self: flex-start;
+  justify-content: flex-start;
+}
+
+.message-bubble {
+  padding: 0.75rem 1rem;
+  border-radius: 1rem;
+  word-wrap: break-word;
+}
+
+.message-bubble.own {
+  background: #8B5CF6;
+  color: white;
+  border-bottom-right-radius: 0.25rem;
+}
+
+.message-bubble.other {
+  background: #F3F4F6;
+  color: #1F2937;
+  border-bottom-left-radius: 0.25rem;
+}
+
+/* Responsive breakpoints */
+
+/* Small devices (phones, 576px and up) */
+@media (min-width: 576px) {
+  .container {
+    padding: 0 1.5rem;
+  }
+  
+  .form-container {
+    padding: 2.5rem;
+  }
+  
+  .nav-title {
+    font-size: 1.75rem;
+  }
+  
+  .nav-button {
+    padding: 0.75rem 1.25rem;
+    font-size: 1rem;
+  }
+  
+  .photo-grid {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  }
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+  .container {
+    padding: 0 2rem;
+  }
+  
+  .nav-header {
+    padding: 1.5rem;
+    flex-wrap: nowrap;
+  }
+  
+  .nav-buttons {
+    flex-wrap: nowrap;
+    gap: 1rem;
+  }
+  
+  .form-container {
+    max-width: 500px;
+    padding: 3rem;
+  }
+  
+  .form-grid.two-cols {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .match-card {
+    max-width: 450px;
+  }
+  
+  .match-photo {
+    height: 450px;
+  }
+  
+  .action-buttons {
+    gap: 2rem;
+  }
+  
+  .action-button {
+    padding: 1.25rem 2.5rem;
+    font-size: 1.25rem;
+  }
+  
+  .photo-grid {
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  }
+  
+  .message {
+    max-width: 70%;
+  }
+  
+  .message-container {
+    max-height: 70vh;
+  }
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+  .container {
+    padding: 0 3rem;
+  }
+  
+  .form-container {
+    max-width: 600px;
+  }
+  
+  .match-card {
+    max-width: 500px;
+  }
+  
+  .match-photo {
+    height: 500px;
+  }
+  
+  .grid-cols-lg-3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  
+  .grid-cols-lg-4 {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+  
+  .photo-grid {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  }
+  
+  .message {
+    max-width: 60%;
+  }
+  
+  .action-button {
+    padding: 1.5rem 3rem;
+    font-size: 1.375rem;
+  }
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+  .container {
+    max-width: 1400px;
+  }
+  
+  .nav-title {
+    font-size: 2rem;
+  }
+  
+  .form-container {
+    max-width: 700px;
+  }
+  
+  .match-card {
+    max-width: 550px;
+  }
+  
+  .photo-grid {
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  }
+  
+  .grid-cols-xl-5 {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+  }
+  
+  .message-container {
+    max-height: 75vh;
+  }
+}
+
+/* Extra small devices (phones in portrait, less than 576px) */
+@media (max-width: 575px) {
+  .nav-header {
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem 0.5rem;
+  }
+  
+  .nav-title {
+    font-size: 1.25rem;
+  }
+  
+  .nav-buttons {
+    justify-content: center;
+    width: 100%;
+  }
+  
+  .nav-button {
+    padding: 0.5rem 0.75rem;
+    font-size: 0.75rem;
+  }
+  
+  .nav-button span:last-child {
+    display: none;
+  }
+  
+  .form-container {
+    margin: 1rem;
+    padding: 1.5rem;
+  }
+  
+  .match-card {
+    margin: 0 0.5rem;
+  }
+  
+  .match-photo {
+    height: 350px;
+  }
+  
+  .action-buttons {
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+  
+  .action-button {
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+  }
+  
+  .photo-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .message {
+    max-width: 90%;
+  }
+  
+  .message-bubble {
+    padding: 0.5rem 0.75rem;
+    font-size: 0.875rem;
+  }
+}
+
+/* Landscape phone orientation */
+@media (max-height: 500px) and (orientation: landscape) {
+  .match-photo {
+    height: 250px;
+  }
+  
+  .message-container {
+    max-height: 40vh;
+  }
+  
+  .form-container {
+    padding: 1rem;
+  }
+}
+
+/* High resolution displays */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .match-card {
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  .form-container {
+    background: #1F2937;
+    color: white;
+  }
+  
+  .form-input {
+    background: #374151;
+    border-color: #4B5563;
+    color: white;
+  }
+  
+  .message-bubble.other {
+    background: #374151;
+    color: white;
+  }
+}
+
+/* Reduced motion for accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .match-card {
+    transition: none;
+  }
+  
+  .action-button {
+    transition: none;
+  }
+  
+  .nav-button {
+    transition: none;
+  }
+  
+  .btn {
+    transition: none;
+  }
+}
+
+/* Print styles */
+@media print {
+  .nav-header,
+  .action-buttons,
+  .nav-button {
+    display: none;
+  }
+  
+  .match-card {
+    box-shadow: none;
+    border: 1px solid #000;
+  }
+}
+
+/* Focus styles for accessibility */
+.nav-button:focus,
+.btn:focus,
+.action-button:focus,
+.form-input:focus {
+  outline: 2px solid #8B5CF6;
+  outline-offset: 2px;
+}
