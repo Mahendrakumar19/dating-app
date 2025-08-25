@@ -40,3 +40,5 @@ Thumbs.db
 
 # Uploads
 uploads/
+# Local Netlify folder
+.netlify
