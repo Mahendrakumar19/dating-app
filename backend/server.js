@@ -25,7 +25,11 @@ const io = new Server(server, {
 // CORS middleware for production
 app.use(cors({
   origin: process.env.NODE_ENV === 'production'
-    ? [process.env.FRONTEND_URL, process.env.CORS_ORIGIN]
+    ? [
+        "https://uohdatingapp.vercel.app", // your Vercel frontend
+        process.env.FRONTEND_URL,
+        process.env.CORS_ORIGIN
+      ]
     : ["http://localhost:3000"],
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
@@ -108,6 +112,7 @@ const dbCheck = (req, res, next) => {
 app.use('/api/auth', dbCheck, require('./routes/auth'));
 app.use('/api/user', dbCheck, require('./routes/user'));
 app.use('/api/messages', dbCheck, require('./routes/messages'));
+app.use('/api/emailVerification', dbCheck, require('./routes/emailVerification')); // <-- Added this route
 
 // Socket.io connection handling
 io.on('connection', (socket) => {
